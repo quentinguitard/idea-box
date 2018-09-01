@@ -1,0 +1,23 @@
+AppBundle\Entity\User:
+  constraints:
+    - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: email
+  properties:
+    firstname:
+      - NotBlank: ~
+      - Type: string
+    lastname:
+      - NotBlank: ~
+      - Type: string
+    email:
+      - NotBlank: ~
+      - Email: ~
+AppBundle\Entity\Ticket:
+  constraints:
+    - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: title
+  properties:
+    title:
+      - NotBlank: ~
+      - Type: string
+    count:
+      - NotBlank: ~
+      - Type: integer
