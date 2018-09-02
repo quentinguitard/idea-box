@@ -83,4 +83,48 @@ class TicketController extends Controller
             $em->flush();
         }
     }
+
+    /**
+    * @Rest\View(statusCode=Response::HTTP_NO_CONTENT)
+    * @Rest\Put("/tickets/{id}/upcount")
+    */
+    public function updateIncreaseCountAction(Request $request)
+    {
+        $em = $this->get('doctrine.orm.entity_manager');
+        $ticket = $em->getRepository('AppBundle:Ticket')
+                    ->find($request->get('id'));
+        /* @var $ticket Ticket */
+
+        if (empty($ticket)) {
+            return new JsonResponse(['message' => 'Ticket not found'], Response::HTTP_NOT_FOUND);
+        }
+
+        $ticket->setCount($ticket->getCount() + 1);
+        $em->persist($ticket);
+        $em->flush();
+
+        return $ticket;
+    }
+
+    /**
+    * @Rest\View(statusCode=Response::HTTP_NO_CONTENT)
+    * @Rest\Put("/tickets/{id}/upcount")
+    */
+    public function updateDecreaseCountAction(Request $request)
+    {
+        $em = $this->get('doctrine.orm.entity_manager');
+        $ticket = $em->getRepository('AppBundle:Ticket')
+                    ->find($request->get('id'));
+        /* @var $ticket Ticket */
+
+        if (empty($ticket)) {
+            return new JsonResponse(['message' => 'Ticket not found'], Response::HTTP_NOT_FOUND);
+        }
+
+        $ticket->setCount($ticket->getCount() - 1);
+        $em->persist($ticket);
+        $em->flush();
+
+        return $ticket;
+    }
 }
