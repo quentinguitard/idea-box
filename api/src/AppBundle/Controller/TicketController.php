@@ -108,7 +108,7 @@ class TicketController extends Controller
 
     /**
     * @Rest\View(statusCode=Response::HTTP_NO_CONTENT)
-    * @Rest\Put("/tickets/{id}/upcount")
+    * @Rest\Put("/tickets/{id}/downcount")
     */
     public function updateDecreaseCountAction(Request $request)
     {
