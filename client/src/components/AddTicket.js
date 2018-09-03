@@ -8,23 +8,29 @@ class AddTicket extends Component {
     };
     render() {
         return (
-            <div className="container">
-                <h2>form</h2>
+            <div className="container mb-4">
                 <form
                     id="new-ticket-form"
                     onSubmit={this.handleSubmit}
                     ref={ref => (this.formRef = ref)}
                 >
-                    <label>
-                        <span className="text">Post Your Idea :</span>
-                        <input type="text" name="title" />
-                        <br />
-                    </label>
+                    <div className="">
+                        <div className="form-group">
+                            <label for="title">
+                                <h4>Post Your Idea :</h4>
+                            </label>
 
-                    <input type="hidden" value="0" name="count" />
+                            <input
+                                className="form-control"
+                                type="text"
+                                name="title"
+                                id="title"
+                            />
+                            <br />
 
-                    <div className="align-right">
-                        <button>Submit</button>
+                            <input type="hidden" value="0" name="count" />
+                            <button className="btn btn-light">Submit</button>
+                        </div>
                     </div>
                 </form>
             </div>

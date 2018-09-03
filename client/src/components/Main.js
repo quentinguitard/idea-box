@@ -66,24 +66,37 @@ class Main extends Component {
         );
         var listTickets = sortedTickets.map(ticket => {
             return (
-                <div className="" key={ticket.id}>
-                    <h4>{ticket.title}</h4>
-                    <h4>Score : {ticket.count}</h4>
-                    <button onClick={() => this.handleUpVote(ticket.id)}>
-                        +1
-                    </button>
-                    <button onClick={() => this.handleDownVote(ticket.id)}>
-                        -1
-                    </button>
+                <div
+                    className="d-flex justify-content-between border border-info align-items-center rounded m-2 bc-light-white"
+                    key={ticket.id}
+                >
+                    <div className="p-3 ml-5">
+                        <h4>{ticket.title}</h4>
+                        <h5>Score : {ticket.count}</h5>
+                    </div>
+                    <div className="p-3 ml-5">
+                        <button
+                            className="btn btn-outline-success m-2"
+                            onClick={() => this.handleUpVote(ticket.id)}
+                        >
+                            +1
+                        </button>
+                        <button
+                            className="btn btn-outline-danger m-2"
+                            onClick={() => this.handleDownVote(ticket.id)}
+                        >
+                            -1
+                        </button>
+                    </div>
                 </div>
             );
         });
         return (
-            <div className="container">
-                {listTickets}
-                {this.state.isLoading && "Loading"}
-
+            <div className="container mt-5">
                 <AddTicket onSubmit={this.handleSubmit} />
+                <h1>{this.state.isLoading && "Loading"}</h1>
+
+                {listTickets}
             </div>
         );
     }
