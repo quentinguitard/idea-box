@@ -11,7 +11,7 @@ class Main extends Component {
     }
 
     handleUpVote = id => {
-        fetch(`http://127.0.0.1:8000/tickets/${id}/upcount`, {
+        fetch(`http://127.0.0.1:8000/api/tickets/${id}/upcount`, {
             method: "PUT"
         });
         this.setState(state => {
@@ -24,7 +24,7 @@ class Main extends Component {
     };
 
     handleDownVote = id => {
-        fetch(`http://127.0.0.1:8000/tickets/${id}/downcount`, {
+        fetch(`http://127.0.0.1:8000/api/tickets/${id}/downcount`, {
             method: "PUT"
         });
         this.setState(state => {
@@ -38,7 +38,7 @@ class Main extends Component {
 
     handleSubmit = post => {
         const data = new FormData(post);
-        fetch("http://127.0.0.1:8000/tickets", {
+        fetch("http://127.0.0.1:8000/api/tickets", {
             method: "POST",
             body: data
         }).then(() => {
@@ -48,7 +48,7 @@ class Main extends Component {
 
     fetchApi = () => {
         this.setState({ isLoading: true });
-        fetch("http://127.0.0.1:8000/tickets")
+        fetch("http://127.0.0.1:8000/api/tickets")
             .then(response => {
                 return response.json();
             })

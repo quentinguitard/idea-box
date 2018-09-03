@@ -16,7 +16,7 @@ class TicketController extends Controller
 {
     /**
      * @Rest\View()
-     * @Rest\Get("/tickets")
+     * @Rest\Get("api/tickets")
      */
     public function getTicketsAction(Request $request)
     {
@@ -30,7 +30,7 @@ class TicketController extends Controller
 
     /**
      * @Rest\View()
-     * @Rest\Get("/tickets/{ticket_id}")
+     * @Rest\Get("api/tickets/{ticket_id}")
      */
     public function getTicketAction(Request $request)
     {
@@ -48,7 +48,7 @@ class TicketController extends Controller
 
     /**
      * @Rest\View(statusCode=Response::HTTP_CREATED)
-     * @Rest\Post("/tickets")
+     * @Rest\Post("api/tickets")
      */
     public function postTicketsAction(Request $request)
     {
@@ -69,7 +69,7 @@ class TicketController extends Controller
 
     /**
      * @Rest\View(statusCode=Response::HTTP_NO_CONTENT)
-     * @Rest\Delete("/tickets/{id}")
+     * @Rest\Delete("api/tickets/{id}")
      */
     public function removeTicketAction(Request $request)
     {
@@ -86,7 +86,7 @@ class TicketController extends Controller
 
     /**
     * @Rest\View(statusCode=Response::HTTP_NO_CONTENT)
-    * @Rest\Put("/tickets/{id}/upcount")
+    * @Rest\Put("api/tickets/{id}/upcount")
     */
     public function updateIncreaseCountAction(Request $request)
     {
@@ -108,7 +108,7 @@ class TicketController extends Controller
 
     /**
     * @Rest\View(statusCode=Response::HTTP_NO_CONTENT)
-    * @Rest\Put("/tickets/{id}/downcount")
+    * @Rest\Put("api/tickets/{id}/downcount")
     */
     public function updateDecreaseCountAction(Request $request)
     {

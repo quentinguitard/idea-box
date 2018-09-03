@@ -1,9 +1,9 @@
 app:
-  resource: "@AppBundle/Controller/DefaultController.php"
-  type: annotation
+    resource: "@AppBundle/Controller/DefaultController.php"
+    type: annotation
 users:
-  type: rest
-  resource: AppBundle\Controller\UserController
+    type: rest
+    resource: AppBundle\Controller\UserController
 tickets:
-  type: rest
-  resource: AppBundle\Controller\TicketController
+    type: rest
+    resource: AppBundle\Controller\TicketController
