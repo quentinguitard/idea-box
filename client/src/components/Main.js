@@ -28,10 +28,10 @@ class Main extends Component {
             method: "PUT"
         });
         this.setState(state => {
-            const upVotedTicket = state.tickets.find(
+            const downVotedTicket = state.tickets.find(
                 ticket => ticket.id === id
             );
-            upVotedTicket.count -= 1;
+            downVotedTicket.count = downVotedTicket.count - 1;
             return state;
         });
     };
@@ -66,20 +66,23 @@ class Main extends Component {
         );
         var listTickets = sortedTickets.map(ticket => {
             return (
-                <div>
-                    <h4 key={ticket.id}>{ticket.title}</h4>
-                    <h4>{ticket.count}</h4>
+                <div className="" key={ticket.id}>
+                    <h4>{ticket.title}</h4>
+                    <h4>Score : {ticket.count}</h4>
                     <button onClick={() => this.handleUpVote(ticket.id)}>
                         +1
                     </button>
-                    <button>-1</button>
+                    <button onClick={() => this.handleDownVote(ticket.id)}>
+                        -1
+                    </button>
                 </div>
             );
         });
         return (
-            <div className="App">
+            <div className="container">
                 {listTickets}
                 {this.state.isLoading && "Loading"}
+
                 <AddTicket onSubmit={this.handleSubmit} />
             </div>
         );
