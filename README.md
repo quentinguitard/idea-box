@@ -1,8 +1,7 @@
 # idea-box
+Personal Project : Idea Box
 
-In process.
-
-Simple app using and api made with Symfony and front end with Reactjs.
+Simple app using and api made with Symfony and front end with React.js.
 The app tracks submited ideas.
 You can vote up and down on ideas.
 
